@@ -29,6 +29,8 @@
 @class Open_im_sdk_callbackOnSignalingListener;
 @protocol Open_im_sdk_callbackOnUserListener;
 @class Open_im_sdk_callbackOnUserListener;
+@protocol Open_im_sdk_callbackOnWorkMomentsListener;
+@class Open_im_sdk_callbackOnWorkMomentsListener;
 @protocol Open_im_sdk_callbackSendMsgCallBack;
 @class Open_im_sdk_callbackSendMsgCallBack;
 
@@ -91,6 +93,7 @@
 @end
 
 @protocol Open_im_sdk_callbackOnSignalingListener <NSObject>
+- (void)onHangUp:(NSString* _Nullable)hangUpCallback;
 - (void)onInvitationCancelled:(NSString* _Nullable)invitationCancelledCallback;
 - (void)onInvitationTimeout:(NSString* _Nullable)invitationTimeoutCallback;
 - (void)onInviteeAccepted:(NSString* _Nullable)inviteeAcceptedCallback;
@@ -102,6 +105,10 @@
 
 @protocol Open_im_sdk_callbackOnUserListener <NSObject>
 - (void)onSelfInfoUpdated:(NSString* _Nullable)userInfo;
+@end
+
+@protocol Open_im_sdk_callbackOnWorkMomentsListener <NSObject>
+- (void)onRecvNewNotification;
 @end
 
 @protocol Open_im_sdk_callbackSendMsgCallBack <NSObject>
@@ -127,6 +134,8 @@
 @class Open_im_sdk_callbackOnSignalingListener;
 
 @class Open_im_sdk_callbackOnUserListener;
+
+@class Open_im_sdk_callbackOnWorkMomentsListener;
 
 @class Open_im_sdk_callbackSendMsgCallBack;
 
@@ -221,6 +230,7 @@
 @property(strong, readonly) _Nonnull id _ref;
 
 - (nonnull instancetype)initWithRef:(_Nonnull id)ref;
+- (void)onHangUp:(NSString* _Nullable)hangUpCallback;
 - (void)onInvitationCancelled:(NSString* _Nullable)invitationCancelledCallback;
 - (void)onInvitationTimeout:(NSString* _Nullable)invitationTimeoutCallback;
 - (void)onInviteeAccepted:(NSString* _Nullable)inviteeAcceptedCallback;
@@ -236,6 +246,14 @@
 
 - (nonnull instancetype)initWithRef:(_Nonnull id)ref;
 - (void)onSelfInfoUpdated:(NSString* _Nullable)userInfo;
+@end
+
+@interface Open_im_sdk_callbackOnWorkMomentsListener : NSObject <goSeqRefInterface, Open_im_sdk_callbackOnWorkMomentsListener> {
+}
+@property(strong, readonly) _Nonnull id _ref;
+
+- (nonnull instancetype)initWithRef:(_Nonnull id)ref;
+- (void)onRecvNewNotification;
 @end
 
 @interface Open_im_sdk_callbackSendMsgCallBack : NSObject <goSeqRefInterface, Open_im_sdk_callbackSendMsgCallBack> {

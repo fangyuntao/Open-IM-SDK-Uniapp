@@ -50,9 +50,10 @@
 		<button type="default" size="mini" @click="pinConversation()">pinConversation</button>
 		<button type="default" size="mini" @click="getTotalUnreadMsgCount()">getTotalUnreadMsgCount</button>
 		<button type="default" size="mini" @click="createTextMessage()">createTextMessage</button>
+		<button type="default" size="mini" @click="createCardMessage()">createCardMessage</button>
 		<button type="default" size="mini" @click="sendMessage()">sendMessage</button>
 		<button type="default" size="mini" @click="createImageMsg()">createImageMsg</button>
-		<button type="default" size="mini" @click="createImageMessageFromFullPath()">createImageMessageFromFullPath</button>
+		<button type="default" size="mini" @click="createImageMessageByURL()">createImageMessageByURL</button>
 		<button type="default" size="mini" @click="sendMessageNotOss()">sendMessageNotOss</button>
 		<button type="default" size="mini" @click="getHistoryMessageList()">getHistoryMessageList</button>
 		<button type="default" size="mini" @click="revokeMessage()">revokeMessage</button>
@@ -85,8 +86,8 @@
 			init(path) {
 				const config = {
 					platform: 2,
-					api_addr: "http://43.128.5.63:10000",
-					ws_addr: "ws://43.128.5.63:17778",
+					api_addr: "http://43.128.5.63:10002",
+					ws_addr: "ws://43.128.5.63:10001",
 					data_dir: path,
 					log_level: 6,
 					object_storage: "cos"
@@ -111,18 +112,25 @@
 				// connect status
 				event.addEventListener("onConnectSuccess",(data)=>{
 					console.log(data);
+					uni.showToast({
+						title: 'onConnectSuccess!!!!',
+						duration: 1500,
+					})
 				})
 				event.addEventListener("onConnectFailed",(data)=>{
 					console.log(data);
 				})
 				// sendMessage callback
 				event.addEventListener("sendMessageSuccess",data=>{
+					console.log("sendMessageSuccess");
 					console.log(data);
 				})
 				event.addEventListener("sendMessageFailed",data=>{
+					console.log("sendMessageFailed");
 					console.log(data);
 				})
 				event.addEventListener("sendMessageProgress",data=>{
+					console.log("sendMessageProgress");
 					console.log(data);
 				})
 				// message listener
@@ -578,15 +586,35 @@
 				this.createmessage = meg
 				console.log(JSON.parse(meg))
 			},
+			createCardMessage(){
+				const data = {
+					title:"cardMessage",
+					content:"cardContent"
+				}
+				const meg = im.createCardMessage("opid",JSON.stringify(data))
+				this.createmessage = meg
+				console.log("createCardMessage:::");
+				console.log(JSON.parse(meg))
+			},
 			// 图片绝对路径
-			createImageMessageFromFullPath() {
+			createImageMessageByURL() {
 				const operationID = '444' // 随机生成
 				const imagePath = this.createpic
 				console.log(imagePath)
-				const pic = im.createImageMessageFromFullPath(operationID,imagePath)
+				// const pic = im.createImageMessageFromFullPath(operationID,imagePath)
+				const sourcePicture = {
+				        uuid: "uuid",
+				        type: "png",
+				        size: 1024,
+				        width:1024,
+				        height:1024,
+				        url:"https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.jj20.com%2Fup%2Fallimg%2F1115%2F0ZR1095111%2F210ZP95111-7-1200.jpg&refer=http%3A%2F%2Fimg.jj20.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1653444266&t=b8ae0104bcc4086c8cdb722f843a42e3",
+				      };
+				const pic = im.createImageMessageByURL(operationID,sourcePicture,sourcePicture,sourcePicture)
 				this.createmessage = pic
 				console.log(pic)
 			},
+			
 			// 发送消息
 			sendMessage() {
 				const operationID = '444' // 随机生成
