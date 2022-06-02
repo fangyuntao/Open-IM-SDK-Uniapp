@@ -86,8 +86,8 @@
 			init(path) {
 				const config = {
 					platform: 2,
-					api_addr: "http://43.128.5.63:10002",
-					ws_addr: "ws://43.128.5.63:10001",
+					api_addr: "http://121.37.25.71:10002",
+					ws_addr: "ws://121.37.25.71:10001",
 					data_dir: path,
 					log_level: 6,
 					object_storage: "cos"
@@ -149,9 +149,10 @@
 			},
 			// 登陆
 			login() {
-				const operationID = '444' // 随机生成
-				const userID = '18381415165'
-				im.login(operationID,userID,this.token,data => {
+				const operationID = '444'
+				const userID = '17396220460'
+				const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVSUQiOiIxNzM5NjIyMDQ2MCIsIlBsYXRmb3JtIjoiQW5kcm9pZCIsImV4cCI6MTk2OTUwMjQwNiwibmJmIjoxNjU0MTQyNDA2LCJpYXQiOjE2NTQxNDI0MDZ9.BuPubCashRz2K7-tgi_J-KRPCkynixVHNBqBIdrKmHo"
+				im.login(operationID,userID,token,data => {
 					this.res(data)
 					console.log(data)
 				})
@@ -519,8 +520,7 @@
 				const operationID = '444' // 随机生成
 				const sessionType = 1 // 单聊为1，群聊为2
 				const sourceID = '17726378428'
-				// const sourceID = '0140855a6553a96612debbe228e279c3'
-				im.getOneConversation(operationID,sourceID,sessionType,data => {
+				im.getOneConversation(operationID,sessionType,sourceID,data => {
 					this.res(data)
 					console.log(data)
 				})
