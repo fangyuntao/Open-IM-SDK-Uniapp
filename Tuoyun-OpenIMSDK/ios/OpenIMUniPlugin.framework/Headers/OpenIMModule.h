@@ -1,8 +1,8 @@
 //
-//  OpenIMModule.h
+//  OpenIMUniPlugin.h
 //  OpenIMUniPlugin
 //
-//  Created by Snow on 2021/6/24.
+//  Created by blooming on 2022/12/13.
 //
 
 #import <Foundation/Foundation.h>
@@ -12,7 +12,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface OpenIMModule : DCUniModule <Open_im_sdk_callbackOnConnListener,Open_im_sdk_callbackOnUserListener, Open_im_sdk_callbackOnAdvancedMsgListener, Open_im_sdk_callbackOnFriendshipListener, Open_im_sdk_callbackOnConversationListener, Open_im_sdk_callbackOnGroupListener>
+@interface OpenIMModule : DCUniModule <Open_im_sdk_callbackOnConnListener,Open_im_sdk_callbackOnUserListener, Open_im_sdk_callbackOnAdvancedMsgListener, Open_im_sdk_callbackOnFriendshipListener, Open_im_sdk_callbackOnConversationListener, Open_im_sdk_callbackOnGroupListener,Open_im_sdk_callbackOnOrganizationListener,Open_im_sdk_callbackOnSignalingListener,Open_im_sdk_callbackOnWorkMomentsListener,Open_im_sdk_callbackOnBatchMsgListener>
 
 - (void)pushEvent:(NSString *) eventName msg:(nullable id) msg;
 

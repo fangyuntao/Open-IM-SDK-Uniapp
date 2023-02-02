@@ -22,6 +22,8 @@ Open im includes instant messaging and real-time audio and video server and clie
 
 ## Integration
 
+- You can refer to the demo at [here](https://github.com/OpenIMSDK/Open-IM-Uniapp-Demo)
+
 ### Integrate SDK into your project
 
 - You can move folder  `Tuoyun-OpenIMSDK`  into your perject root folder `nativeplugins` 

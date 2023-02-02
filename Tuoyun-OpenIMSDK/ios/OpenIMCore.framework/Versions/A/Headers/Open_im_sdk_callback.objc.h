@@ -21,6 +21,8 @@
 @class Open_im_sdk_callbackOnConnListener;
 @protocol Open_im_sdk_callbackOnConversationListener;
 @class Open_im_sdk_callbackOnConversationListener;
+@protocol Open_im_sdk_callbackOnCustomBusinessListener;
+@class Open_im_sdk_callbackOnCustomBusinessListener;
 @protocol Open_im_sdk_callbackOnFriendshipListener;
 @class Open_im_sdk_callbackOnFriendshipListener;
 @protocol Open_im_sdk_callbackOnGroupListener;
@@ -70,6 +72,10 @@
 - (void)onTotalUnreadMessageCountChanged:(int32_t)totalUnreadCount;
 @end
 
+@protocol Open_im_sdk_callbackOnCustomBusinessListener <NSObject>
+- (void)onRecvCustomBusinessMessage:(NSString* _Nullable)businessMessage;
+@end
+
 @protocol Open_im_sdk_callbackOnFriendshipListener <NSObject>
 - (void)onBlackAdded:(NSString* _Nullable)blackInfo;
 - (void)onBlackDeleted:(NSString* _Nullable)blackInfo;
@@ -107,7 +113,11 @@
 - (void)onInviteeAcceptedByOtherDevice:(NSString* _Nullable)inviteeAcceptedCallback;
 - (void)onInviteeRejected:(NSString* _Nullable)inviteeRejectedCallback;
 - (void)onInviteeRejectedByOtherDevice:(NSString* _Nullable)inviteeRejectedCallback;
+- (void)onReceiveCustomSignal:(NSString* _Nullable)CustomSignalCallback;
 - (void)onReceiveNewInvitation:(NSString* _Nullable)receiveNewInvitationCallback;
+- (void)onRoomParticipantConnected:(NSString* _Nullable)onRoomParticipantConnectedCallback;
+- (void)onRoomParticipantDisconnected:(NSString* _Nullable)onRoomParticipantDisconnectedCallback;
+- (void)onStreamChange:(NSString* _Nullable)OnStreamChangeCallback;
 @end
 
 @protocol Open_im_sdk_callbackOnUserListener <NSObject>
@@ -133,6 +143,8 @@
 @class Open_im_sdk_callbackOnConnListener;
 
 @class Open_im_sdk_callbackOnConversationListener;
+
+@class Open_im_sdk_callbackOnCustomBusinessListener;
 
 @class Open_im_sdk_callbackOnFriendshipListener;
 
@@ -208,6 +220,14 @@
 - (void)onTotalUnreadMessageCountChanged:(int32_t)totalUnreadCount;
 @end
 
+@interface Open_im_sdk_callbackOnCustomBusinessListener : NSObject <goSeqRefInterface, Open_im_sdk_callbackOnCustomBusinessListener> {
+}
+@property(strong, readonly) _Nonnull id _ref;
+
+- (nonnull instancetype)initWithRef:(_Nonnull id)ref;
+- (void)onRecvCustomBusinessMessage:(NSString* _Nullable)businessMessage;
+@end
+
 @interface Open_im_sdk_callbackOnFriendshipListener : NSObject <goSeqRefInterface, Open_im_sdk_callbackOnFriendshipListener> {
 }
 @property(strong, readonly) _Nonnull id _ref;
@@ -261,7 +281,11 @@
 - (void)onInviteeAcceptedByOtherDevice:(NSString* _Nullable)inviteeAcceptedCallback;
 - (void)onInviteeRejected:(NSString* _Nullable)inviteeRejectedCallback;
 - (void)onInviteeRejectedByOtherDevice:(NSString* _Nullable)inviteeRejectedCallback;
+- (void)onReceiveCustomSignal:(NSString* _Nullable)CustomSignalCallback;
 - (void)onReceiveNewInvitation:(NSString* _Nullable)receiveNewInvitationCallback;
+- (void)onRoomParticipantConnected:(NSString* _Nullable)onRoomParticipantConnectedCallback;
+- (void)onRoomParticipantDisconnected:(NSString* _Nullable)onRoomParticipantDisconnectedCallback;
+- (void)onStreamChange:(NSString* _Nullable)OnStreamChangeCallback;
 @end
 
 @interface Open_im_sdk_callbackOnUserListener : NSObject <goSeqRefInterface, Open_im_sdk_callbackOnUserListener> {

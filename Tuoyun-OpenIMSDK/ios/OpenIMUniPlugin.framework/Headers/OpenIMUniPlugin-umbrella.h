@@ -13,6 +13,7 @@
 #import "CallbackProxy.h"
 #import "OpenIMModule.h"
 #import "SendMessageCallbackProxy.h"
+#import "UploadFileCallbackProxy.h"
 
 FOUNDATION_EXPORT double OpenIMUniPluginVersionNumber;
 FOUNDATION_EXPORT const unsigned char OpenIMUniPluginVersionString[];
