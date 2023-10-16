@@ -4,9 +4,9 @@
 
 Android SDK 底层核心在 [OpenIM SDK Core](https://github.com/openimsdk/openim-sdk-core) 中实现。使用 [gomobile](https://github.com/golang/mobile)后，它可以被编译成一个 AAR 文件为 Android 集成。Android 通过 JSON 与 [OpenIM SDK Core](https://github.com/openimsdk/openim-sdk-core) 交互，并且 SDK 公开了一个重新封装的 API，以便于使用。在数据存储方面，Android 利用了 [OpenIM SDK Core](https://github.com/openimsdk/openim-sdk-core) 内部提供的 SQLite。
 
-
 iOS SDK 底层核心在 [OpenIM SDK Core](https://github.com/openimsdk/openim-sdk-core) 中实现。使用 [gomobile](https://github.com/golang/mobile) 后，它可以被编译成一个 XCFramework 用于 iOS 集成。iOS 通过 JSON 与 [OpenIM SDK Core](https://github.com/openimsdk/openim-sdk-core) 交互，并且 SDK 公开了一个重新封装的 API，以便于使用。在数据存储方面，iOS 利用了 [OpenIM SDK Core](https://github.com/openimsdk/openim-sdk-core) 内部提供的 SQLite。
 
+Uni-app 在 App 侧的原生扩展插件，支持使用 java、object-c 等原生语言编写。使用云插件或本地插件引入 SDK 将即时消息功能集成到您的应用程序中。
 
 ## 文档 📚
 
