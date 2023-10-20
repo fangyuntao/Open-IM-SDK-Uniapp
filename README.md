@@ -1,6 +1,6 @@
 # Uniapp Client SDK for OpenIM 👨‍💻💬
 
-使用此 SDK 为您的应用程序添加即时消息功能。通过连接到自己的的 [OpenIM](https://www.openim.online/) 服务器，您只需几行代码即可快速将即时消息功能集成到您的应用程序中。
+使用此 SDK 为您的应用程序添加即时消息功能。通过连接到自己的的 [OpenIM](https://www.openim.io/) 服务器，您只需几行代码即可快速将即时消息功能集成到您的应用程序中。
 
 Android SDK 底层核心在 [OpenIM SDK Core](https://github.com/openimsdk/openim-sdk-core) 中实现。使用 [gomobile](https://github.com/golang/mobile)后，它可以被编译成一个 AAR 文件为 Android 集成。Android 通过 JSON 与 [OpenIM SDK Core](https://github.com/openimsdk/openim-sdk-core) 交互，并且 SDK 公开了一个重新封装的 API，以便于使用。在数据存储方面，Android 利用了 [OpenIM SDK Core](https://github.com/openimsdk/openim-sdk-core) 内部提供的 SQLite。
 
